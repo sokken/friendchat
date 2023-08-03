@@ -21,7 +21,7 @@
 #
 
 QUIT="Installation aborted. Please restart script to complete it."
-P_GIT="https://github.com/FriendSoftwareLabs/presence.git"
+P_GIT="https://github.com/sokken/presence.git"
 
 # Installs Dialog if needed
 PATH_TO_DIALOG=$(which dialog)
@@ -86,8 +86,8 @@ please fix your node.js installation \n\
 fi
 
 # Asks for friendup directory
-#FRIEND_FOLDER="/home/$USER/friendup"
-FRIEND_FOLDER="/opt/friendos"
+FRIEND_FOLDER="/home/$USER/friendup"
+#FRIEND_FOLDER="/opt/friendos"
 while true; do
 	temp=$(dialog --backtitle "Friend Chat installer" --inputbox "\
 Please enter the path to the FriendUp directory." 11 60 "$FRIEND_FOLDER" --output-fd 1)
@@ -545,8 +545,8 @@ then
 	check_return_value $? "presence git clone"
 else
 	cd $PRESENCE_GIT
-	git pull
-	check_return_value $? "presence git pull"
+	#git pull
+	#check_return_value $? "presence git pull"
 fi
 
 # Copies files into Friend build directory
