@@ -704,6 +704,7 @@ var hello = window.hello || {};
 	ns.Activity.prototype.handleIdUpdate = function( e ) {
 		const self = this;
 		const id = e.id;
+		console.log( 'handleIdUpdate', e )
 		const item = self.items[ id ];
 		if ( !item ) {
 			console.log( 'main.Activity.handleIdUpdate - no item for id', {
@@ -1373,6 +1374,7 @@ var hello = window.hello || {};
 	ns.ActivityContact.prototype.updateIdentity = function( id ) {
 		const self = this;
 		self.identity = id;
+		console.log( 'ActivityContact.updateIdentity', id )
 		self.name.textContent = id.name;
 		if ( id && id.avatar ) {
 			const ava = "url('" + id.avatar + "')";
