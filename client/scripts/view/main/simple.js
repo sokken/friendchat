@@ -704,7 +704,6 @@ var hello = window.hello || {};
 	ns.Activity.prototype.handleIdUpdate = function( e ) {
 		const self = this;
 		const id = e.id;
-		console.log( 'handleIdUpdate', e )
 		const item = self.items[ id ];
 		if ( !item ) {
 			console.log( 'main.Activity.handleIdUpdate - no item for id', {
