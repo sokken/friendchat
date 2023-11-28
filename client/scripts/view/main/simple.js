@@ -1375,7 +1375,9 @@ var hello = window.hello || {};
 		const self = this;
 		self.identity = id;
 		console.log( 'ActivityContact.updateIdentity', id )
-		self.name.textContent = library.tool.htmlDecode( id.name );
+		const dec = library.tool.htmlDecode( id.name )
+		console.log( 'decoded',  dec )
+		self.name.textContent = dec
 		if ( id && id.avatar ) {
 			const ava = "url('" + id.avatar + "')";
 			self.avatar.style[ 'background-image' ] = ava;
