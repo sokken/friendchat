@@ -1096,6 +1096,7 @@ var friend = window.friend || {}; // already instanced stuff
 	
 	ns.AppEvent.prototype.register = async function( msg ) {
 		const self = this;
+		console.log( 'fchat register', [ msg, msg.friendApp ])
 		window.origin  = msg.origin;
 		self.domain    = msg.domain;
 		self.locale    = msg.locale;
