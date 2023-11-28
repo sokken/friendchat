@@ -225,6 +225,10 @@ var hello = null;
 		if ( self.config.run )
 			openMinimized = self.handleRunConf();
 		
+		console.log( 'hello run, friendApp check', hello.app.friendApp )
+		if ( false == openMinimized && !!hello.app.friendApp )
+			openMinimized = true
+		
 		self.openMain( openMinimized );
 		
 		handleUserInfo( userInfo );
@@ -849,6 +853,7 @@ var hello = null;
 	
 	ns.Hello.prototype.openMain = function( openMinimized ) {
 		const self = this;
+		console.log( 'openMinimized', openMinimized )
 		self.timeNow( 'openMain' );
 		self.main.open( openMinimized );
 	}
@@ -1154,6 +1159,7 @@ var hello = null;
 	
 	ns.Hello.prototype.handlePushNotie = function( event ) {
 		const self = this;
+		console.log( 'handlePushNotie', event )
 		if ( !event || !event.extra ) {
 			console.trace( 'hello.handlePushNotie - not valid event', event );
 			return false;
