@@ -1158,7 +1158,6 @@ var hello = window.hello || {};
 	
 	ns.ActivityRoom.prototype.updateMessage = function( msg ) {
 		const self = this;
-		console.log( 'ActivityRoom.updateMessage', msg )
 		self.setEventIcon( 'msg' );
 		const nameDecoded = library.tool.htmlDecode( msg.from )
 		self.lastMsgName.textContent = nameDecoded;
@@ -1376,10 +1375,8 @@ var hello = window.hello || {};
 	ns.ActivityContact.prototype.updateIdentity = function( id ) {
 		const self = this;
 		self.identity = id;
-		console.log( 'ActivityContact.updateIdentity', id )
-		const dec = library.tool.htmlDecode( id.name )
-		console.log( 'decoded',  dec )
-		self.name.textContent = id.name;
+		const nameDecoded = library.tool.htmlDecode( id.name )
+		self.name.textContent = nameDecoded;
 		if ( id && id.avatar ) {
 			const ava = "url('" + id.avatar + "')";
 			self.avatar.style[ 'background-image' ] = ava;
