@@ -193,9 +193,10 @@ library.view = library.view || {};
 			return;
 		}
 		
-		const name = self.identity.name;
+		let name = self.identity.name;
+		name = library.tool.htmlDecode( name );
 		if ( name && name.length )
-			nameEl.textContent = self.identity.name;
+			nameEl.textContent = name
 		else
 			nameEl.textContent = 'placeholder';
 		

@@ -1158,7 +1158,8 @@ var hello = window.hello || {};
 	ns.ActivityRoom.prototype.updateMessage = function( msg ) {
 		const self = this;
 		self.setEventIcon( 'msg' );
-		self.lastMsgName.textContent = msg.from;
+		const nameDecoded = library.tool.htmlDecode( msg.from )
+		self.lastMsgName.textContent = nameDecoded;
 		self.message.textContent = msg.message;
 		const time = library.tool.getChatTime( msg.timestamp );
 		self.time.textContent = time;
@@ -1373,7 +1374,8 @@ var hello = window.hello || {};
 	ns.ActivityContact.prototype.updateIdentity = function( id ) {
 		const self = this;
 		self.identity = id;
-		self.name.textContent = id.name;
+		const nameDecoded = library.tool.htmlDecode( id.name )
+		self.name.textContent = nameDecoded;
 		if ( id && id.avatar ) {
 			const ava = "url('" + id.avatar + "')";
 			self.avatar.style[ 'background-image' ] = ava;

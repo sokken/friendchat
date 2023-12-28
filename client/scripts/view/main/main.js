@@ -2719,7 +2719,7 @@ library.view = library.view || {};
 			clientId     : self.clientId,
 			avatarSrc    : self.identity.avatar,
 			statusId     : self.onlineStatus,
-			name         : self.identity.name,
+			name         : library.tool.htmlDecode( self.identity.name ),
 			liveStatusId : self.liveStatus,
 			msgWaitingId : self.msgWaiting,
 		};
