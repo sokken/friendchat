@@ -1293,12 +1293,16 @@ var hello = null;
 		
 		function getPreView( extra ) {
 			const roomId = extra.roomId;
-			const roomName = extra.title;
+			const conf = {
+				roomId    : roomId,
+				name      : extra.title,
+				isPrivate : true,
+			}
 			let view = self.preViews[ roomId ];
 			if ( null != view )
 				return view;
 			
-			view = new library.view.PresenceChat( null, roomName, true );
+			view = new library.view.PresenceChat( null, conf );
 			self.preViews[ roomId ] = view;
 			return view;
 		}

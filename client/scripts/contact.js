@@ -1207,13 +1207,10 @@ library.contact = library.contact || {};
 			preView.updateState( initData );
 		}
 		else {
-			self.chatView = new library.view.PresenceChat(
-				initData,
-				self.isPrivate
-			);
+			self.chatView = new library.view.PresenceChat( initData );
 		}
 		
-		self.sendCounterReset();
+		self.sendCounterReset()
 		
 		self.chatView.on( 'chat', e => self.sendChatEvent( e ));
 		self.chatView.on( 'live', goLive );
@@ -3191,6 +3188,7 @@ library.contact = library.contact || {};
 	ns.PresenceHidden.prototype.openChat = function() {
 		const self = this;
 		const initData = {
+			clientId    : self.clientId,
 			isPrivate   : true,
 			persistent  : true,
 			isHidden    : true,
@@ -3914,6 +3912,8 @@ library.contact = library.contact || {};
 		}
 		
 		const initData = {
+			room        : self.identity,
+			clientId    : self.clientId,
 			isPrivate   : self.isPrivate,
 			roomName    : self.identity.name,
 			persistent  : self.persistent,
@@ -3935,7 +3935,7 @@ library.contact = library.contact || {};
 		} else
 			self.chatView = new library.view.PresenceChat( initData );
 			
-		self.sendCounterReset();
+		self.sendCounterReset()
 		
 		self.chatView.on( 'close', onClose );
 		self.chatView.on( 'chat', e => self.sendChatEvent( e ));
