@@ -1550,14 +1550,14 @@ var friend = window.friend || {}; // already instanced stuff
 		if ( !file ) {
 			return false;
 		}
-			
+		
 		if ( 0 === file.indexOf( '<!DOC')) {
 			console.log( 'no file for locale', {
 				locale : localeFile,
 				file    : file,
 			});
 			self.locale = 'en';
-			self.setLocale( null, callback );
+			self.setLocale( null );
 			return false;
 		}
 		
