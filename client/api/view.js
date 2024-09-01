@@ -1053,6 +1053,7 @@ var friend = window.friend || {};
 	
 	ns.View.prototype.prepareCamera = function( camButtonEl, callback ) {
 		const self = this;
+		console.log( 'prepareCamera', self.cameraSetup )
 		const inputId = 'nativeCameraTrigger';
 		const wrapId = 'cameraButtonInputWrap';
 		const imageToolsId = 'cameraImageTools';
