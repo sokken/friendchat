@@ -1124,10 +1124,11 @@ var friend = window.friend || {};
 			
 			input.addEventListener( 'focus', yepFocus );
 			function yepFocus( e ) {
-				
+				console.log( 'cam input yepFocus' )
 			}
 			
 			function handleIncomingFile( evt, input ) {
+				console.log( 'handleIncomingFile', evt, input )
 				if( evt && evt.target && evt.target.files ) {
 					window.loadImage(
 						evt.target.files[0],
