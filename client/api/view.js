@@ -1085,6 +1085,7 @@ var friend = window.friend || {};
 		}
 		
 		function setupMobile( camBtn ) {
+			console.log( 'setupMobile', camBtn )
 			// mobile device image capture is best done using a file input. we put that in place.
 			const btnParent = camBtn.parentNode;
 			let wrap = document.getElementById( wrapId );
@@ -1140,6 +1141,7 @@ var friend = window.friend || {};
 					);
 					
 					function loadBack( returnedcanvas, meta ) {
+						console.log( 'loadBack' )
 						const imagedata = returnedcanvas.toDataURL('image/jpeg', 0.9);
 						imgBack({
 							data : imagedata
