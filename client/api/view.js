@@ -1157,6 +1157,7 @@ var friend = window.friend || {};
 		}
 		
 		function imgBack( img ) {
+			console.log( 'imgBack', img )
 			if( !( img && img.data )) {
 				callback({
 					result : false
