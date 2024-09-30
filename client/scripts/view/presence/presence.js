@@ -165,7 +165,7 @@ library.view = library.view || {};
 			
 			qrs.onclick = function( e  ) {
 				console.log( 'qrs click' )
-				selv.view.openCamera( {}, res => {
+				self.View.openCamera( {}, res => {
 					console.log( 'qrsBack', res );
 				});
 			}
