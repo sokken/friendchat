@@ -138,10 +138,11 @@ library.view = library.view || {};
 		
 		function attach( e ) {
 			const menu = ge( 'attachment-menu' );
-			const can = menu.querySelector( '.Cancel' );
-			const cam = menu.querySelector( '.Camera' );
-			const upl = menu.querySelector( '.Upload' );
-			const qrs = menu.querySelector( '.QRScan' );
+			const can = menu.querySelector( '.Cancel' )
+			const cam = menu.querySelector( '.Camera' )
+			const upl = menu.querySelector( '.Upload' )
+			const qrs = menu.querySelector( '.QRScan' )
+			console.log( 'qrs', qrs )
 			
 			if( menu.classList.contains( 'Showing' )) {
 				menu.classList.remove( 'Showing' );
@@ -162,7 +163,7 @@ library.view = library.view || {};
 				attachFiles( e );
 			}
 			
-			qrs.onClick = function( e  ) {
+			qrs.onclick = function( e  ) {
 				console.log( 'qrs click' )
 				selv.view.openCamera( {}, res => {
 					console.log( 'qrsBack', res );
