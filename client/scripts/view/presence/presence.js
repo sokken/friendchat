@@ -138,9 +138,10 @@ library.view = library.view || {};
 		
 		function attach( e ) {
 			const menu = ge( 'attachment-menu' );
-			var can = menu.querySelector( '.Cancel' );
-			var cam = menu.querySelector( '.Camera' );
-			var upl = menu.querySelector( '.Upload' );
+			const can = menu.querySelector( '.Cancel' );
+			const cam = menu.querySelector( '.Camera' );
+			const upl = menu.querySelector( '.Upload' );
+			const qrs = menu.querySelector( '.QRScan' );
 			
 			if( menu.classList.contains( 'Showing' )) {
 				menu.classList.remove( 'Showing' );
@@ -160,6 +161,14 @@ library.view = library.view || {};
 				menu.classList.remove( 'Showing' );
 				attachFiles( e );
 			}
+			
+			qrs.onClick = function( e  ) {
+				console.log( 'qrs click' )
+				selv.view.openCamera( {}, res => {
+					console.log( 'qrsBack', res );
+				});
+			}
+			
 		}
 		
 		function attachFiles() {
