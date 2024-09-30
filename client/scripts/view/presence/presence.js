@@ -165,7 +165,7 @@ library.view = library.view || {};
 			
 			qrs.onclick = function( e  ) {
 				console.log( 'qrs click' )
-				self.View.openCamera( {}, res => {
+				View.openCamera( { title : 'qr test' }, res => {
 					console.log( 'qrsBack', res );
 				});
 			}
