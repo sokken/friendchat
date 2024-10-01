@@ -1029,7 +1029,7 @@ var friend = window.friend || {};
 		const self = this;
 		console.log( 'chat - openQRScanner' )
 		return new Promise(( resolve, reject ) => {
-			cb = self.setCallback( scanBack )
+			const cb = self.setCallback( scanBack )
 			const o = {
 				type         : 'system',
 				command      : 'openqrscanner',
