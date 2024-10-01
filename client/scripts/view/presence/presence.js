@@ -163,11 +163,9 @@ library.view = library.view || {};
 				attachFiles( e );
 			}
 			
-			qrs.onclick = function( e  ) {
+			qrs.onclick = async function( e  ) {
 				console.log( 'qrs click' )
-				View.openCamera( { title : 'qr test' }, res => {
-					console.log( 'qrsBack', res );
-				});
+				const res = await View.openQRScanner()
 			}
 			
 		}

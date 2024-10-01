@@ -1025,6 +1025,28 @@ var friend = window.friend || {};
 		self.sendViewEvent( state );
 	}
 	
+	ns.View.prototype.openQRScanner = function() {
+		const self = this;
+		console.log( 'chat - openQRScanner' )
+		return new Promise(( resolve, reject ) => {
+			cb = self.setCallback( scanBack )
+			const o = {
+				type         : 'system',
+				command      : 'openqrscanner',
+				viewId       : self.id,
+				targetViewId : self.id, // TODO: This may be needed!
+				callback     : cb,
+			};
+			
+			self.sendBase( o );
+			
+			function scanBack( res ) { 
+				console.log( 'scanBack', res )
+				resolve( res )
+			}
+		});
+	}
+	
 	// Show the camera
 	ns.View.prototype.openCamera = function( flags, callback )
 	{
