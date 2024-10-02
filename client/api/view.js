@@ -1043,7 +1043,7 @@ var friend = window.friend || {};
 			function scanBack( res ) {
 				try {
 					console.log( 'scanBack', res )
-					resolve( res )
+					resolve( res.data )
 				} catch( ex ) {
 					console.log( 'scanBack ex', ex )
 				}

@@ -167,6 +167,12 @@ library.view = library.view || {};
 				console.log( 'qrs click' )
 				const res = await View.openQRScanner()
 				console.log( 'qrs click result', res )
+				menu.classList.remove( 'Showing' );
+				if ( !res )
+					return
+				
+				self.input.setValue( res )
+				self.input.focus()
 			}
 			
 		}
