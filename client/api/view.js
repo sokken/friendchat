@@ -1040,9 +1040,13 @@ var friend = window.friend || {};
 			
 			self.sendBase( o );
 			
-			function scanBack( res ) { 
-				console.log( 'scanBack', res )
-				resolve( res )
+			function scanBack( res ) {
+				try {
+					console.log( 'scanBack', res )
+					resolve( res )
+				} catch( ex ) {
+					console.log( 'scanBack ex', ex )
+				}
 			}
 		});
 	}

@@ -166,6 +166,7 @@ library.view = library.view || {};
 			qrs.onclick = async function( e  ) {
 				console.log( 'qrs click' )
 				const res = await View.openQRScanner()
+				console.log( 'qrs click result', res )
 			}
 			
 		}
