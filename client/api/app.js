@@ -1311,6 +1311,16 @@ var friend = window.friend || {}; // already instanced stuff
 		const res = await sh.execute( cmdLine );
 	}
 	
+	ns.Application.prototype.setHasWorkroom = function( hasWorkroom ) {
+		const self = this
+		const msg = {
+			type    : 'system',
+			command : 'toggleqravailable',
+			data    : { workroom : hasWorkroom },
+		}
+		self.sendMessage( msg )
+	}
+	
 	// Private
 	
 	ns.Application.prototype.toAllViews = function( event ) {

@@ -967,6 +967,12 @@ library.contact = library.contact || {};
 		self.settings.on( 'update', e => self.handleSettingUpdate( e ));
 		
 		self.bindView();
+		
+		if ( self.workgroupId && self.supergroupId ) {
+			console.log( 'is workroom, enable qr' )
+			Application.setHasWorkroom( true )
+		}
+		
 		self.send({
 			type : 'initialize',
 		});

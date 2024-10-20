@@ -1029,16 +1029,21 @@ var friend = window.friend || {};
 		const self = this;
 		console.log( 'chat - openQRScanner' )
 		return new Promise(( resolve, reject ) => {
-			const cb = self.setCallback( scanBack )
+			//const cb = self.setCallback( scanBack )
 			const o = {
 				type         : 'system',
-				command      : 'openqrscanner',
+				//command      : 'openqrscanner',
+				command      : 'toggle_qr_available',
 				viewId       : self.id,
 				targetViewId : self.id, // TODO: This may be needed!
-				callback     : cb,
+				//callback     : cb,
+				data         : {
+					  workroom : true,
+				}
 			};
 			
 			self.sendBase( o );
+			resolve( true )
 			
 			function scanBack( res ) {
 				try {

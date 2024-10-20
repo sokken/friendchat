@@ -2190,6 +2190,7 @@ library.module = library.module || {};
 		if ( !rooms || !rooms.length )
 			return;
 		
+		console.log( 'setupRoom', rooms )
 		rooms.forEach( room => self.addRoom( room ));
 		const list = rooms.map( r => r.clientId );
 		self.checkCurrentRooms( list );
@@ -2197,6 +2198,7 @@ library.module = library.module || {};
 	
 	ns.Presence.prototype.handleJoin = function( rooms ) {
 		const self = this;
+		console.log( 'handleJoin', rooms )
 		const conf = rooms.joined;
 		const list = rooms.current;
 		self.checkCurrentRooms( list );
@@ -2218,7 +2220,21 @@ library.module = library.module || {};
 	
 	ns.Presence.prototype.handleRoomClosed = function( roomId ) {
 		const self = this;
-		self.removeRoom( roomId );
+		self.removeRoom( roomId )
+		self.checkStillInWorkroom()
+	}
+	
+	ns.Presence.prototype.checkStillInWorkroom = function() {
+		const self = this
+		console.log( 'checkStillInWorkroom', self.rooms )
+		const hasWorkroom = self.roomIds.some( rId => {
+			const room = self.rooms[ rId ]
+			const isWRoom = ( room.workroomId && room.supergroupId )
+			console.log( 'check room', [ room, isWRoom ])
+			return isWRoom
+		})
+		
+		Application.setHasWorkroom( hasWorkroom )
 	}
 	
 	ns.Presence.prototype.handleIdUpdate = function( update ) {
