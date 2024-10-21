@@ -141,8 +141,8 @@ library.view = library.view || {};
 			const can = menu.querySelector( '.Cancel' )
 			const cam = menu.querySelector( '.Camera' )
 			const upl = menu.querySelector( '.Upload' )
-			const qrs = menu.querySelector( '.QRScan' )
-			console.log( 'qrs', qrs )
+			//const qrs = menu.querySelector( '.QRScan' )
+			//console.log( 'qrs', qrs )
 			
 			if( menu.classList.contains( 'Showing' )) {
 				menu.classList.remove( 'Showing' );
@@ -163,6 +163,7 @@ library.view = library.view || {};
 				attachFiles( e );
 			}
 			
+			/*
 			qrs.onclick = async function( e  ) {
 				console.log( 'qrs click' )
 				const res = await View.openQRScanner()
@@ -174,6 +175,7 @@ library.view = library.view || {};
 				self.input.setValue( res )
 				self.input.focus()
 			}
+			*/
 			
 		}
 		
