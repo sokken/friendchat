@@ -2963,6 +2963,7 @@ Searchable collection(s) of users, rooms and other odds and ends
 			try {
 				item = await waitForAdd( cId );
 			} catch( ex ) {
+				console.log( 'waitForAdd ex', ex )
 				return false;
 			}
 			//item = self.cIdMap[ cId ]
@@ -3012,7 +3013,7 @@ Searchable collection(s) of users, rooms and other odds and ends
 					waiting[ waitId ] = waiter;
 				
 				function timedOut() {
-					reject();
+					reject( 'timeout i guess' )
 					
 					const waiting = self.waitForItem[ cId ];
 					if ( !waiting )
