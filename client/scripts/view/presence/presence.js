@@ -131,7 +131,8 @@ library.view = library.view || {};
 		self.toggleUsersBtn.addEventListener( 'click', toggleUserList, false );
 		self.inviteBtn.addEventListener( 'click', showInviter, false );
 		
-		emoPanelBtn.addEventListener( 'click', toggleEmoPanel, false );
+		//emoPanelBtn.addEventListener( 'click', toggleEmoPanel, false );
+		emoPanelBtn.addEventListener( 'emoji-click', handleEmoji, false );
 		inputForm.addEventListener( 'submit', inputSubmit, false );
 		submitBtn.addEventListener( 'click', inputSubmit, false );
 		attachBtn.addEventListener( 'click', attach, false );
@@ -205,8 +206,14 @@ library.view = library.view || {};
 			self.send( inv );
 		}
 		
+		/*
 		function toggleEmoPanel( e ) {
 			self.emojiis.show();
+		}
+		*/
+		
+		function handleEmoji( e ) {
+			console.log( 'handleEmoji', e );
 		}
 		
 		// TODO : this should be moved to multiline input. The entire input form actually
