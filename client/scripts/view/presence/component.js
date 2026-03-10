@@ -3495,7 +3495,7 @@ var hello = window.hello || {};
 		if ( !self.el )
 			return;
 		
-		self.el.classList.toggle( 'hidden', false );
+		self.el.classList.toggle( 'hidden' );
 		//self.el.focus();
 	}
 	
@@ -3550,9 +3550,11 @@ var hello = window.hello || {};
 		}
 		
 		function handleEmoji( e ) {
-			console.log( 'handleEmoji', e )
+			const meta = e.detail
+			console.log( 'handleEmoji', meta )
 			
-			//self.on_emojii()
+			self.on_emojii( meta.unicode )
+			self.hide()
 		}
 	}
 	
