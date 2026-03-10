@@ -3469,6 +3469,92 @@ var hello = window.hello || {};
 })( library.component );
 
 
+// emojielementpicker - external lib
+// https://www.npmjs.com/package/emoji-picker-element
+
+(function( ns, undefined ) {
+	ns.EmojiPicker = function(
+		parentId,
+		on_emojii,
+	) {
+		const self = this;
+		
+		self.parentId = parentId;
+		self.onemojii = onemojii;
+		
+		self.el = null;
+		self.picker = null
+		
+		self.init();
+	}
+	
+	// Public
+	
+	ns.EmojiPicker.prototype.show = function() {
+		const self = this;
+		if ( !self.el )
+			return;
+		
+		self.el.classList.toggle( 'hidden', false );
+		self.el.focus();
+	}
+	
+	ns.EmojiPicker.prototype.hide = function() {
+		const self = this;
+		if ( !self.el )
+			return;
+		
+		self.el.classList.toggle( 'hidden', true );
+	}
+	
+	ns.EmojiPicker.prototype.close = function() {
+		const self = this;
+		if ( self.el )
+			self.el.parentNode.removeChild( self.el );
+		
+		delete self.onemojii;
+		delete self.el;
+		delete self.picker;
+	}
+	
+	// PRIVATE
+	
+	ns.EmojiPicker.prototype.init = function() {
+		const self = this;
+		const conf = {
+			id : friendUP.tool.uid( 'emojii' ),
+		};
+		self.el = hello.template.getElement( 'emojii-picker-tmpl', conf );
+		const parent = document.getElementById( self.parentId );
+		if ( !parent )
+			throw new Error( 'EmojiPicker - no element found for parentId' );
+		
+		parent.appendChild( self.el );
+		self.picker = self.el.getElementById( 'emoji-picker' )
+		console.log( 'picker', self.picker )
+		self.el.tabIndex = -1; // so its focusable
+		self.el.addEventListener( 'blur', emoPanelBlur, false );
+		self.el.addEventListener( 'focus', emoFocus, false );
+		
+		self.picker.addEventListener( 'emoji-click', handleEmoji, false );
+		
+		function emoPanelBlur( e ) {
+			self.hide();
+		}
+		
+		function emoFocus( e ) {
+		}
+		
+		function handleEmoji( e ) {
+			console.log( 'handleEmoji', e )
+			
+			//self.on_emojii()
+		}
+	}
+	
+})( library.component );
+
+
 // emojii panel
 (function( ns, undefined ) {
 	ns.EmojiiPanel = function(

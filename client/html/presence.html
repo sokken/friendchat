@@ -105,9 +105,9 @@
 		<!-- users list is inserted here -->
 	</div>
 	<div id="foot" class="group row fortify cover">
-		<emoji-picker id="emojii-panel-button" class="button flat fortify center-child">
+		<div id="emojii-panel-button" class="button flat fortify center-child">
 			<i class="fa fa-fw fa-smile-o"></i>
-		</emoji-picker>
+		</div>
 		<form id="input-form" action="" class="bar row cover expand">
 			<div id="attachment" class="button flat fortify center-child">
 				<i class="fa fa-fw fa-paperclip"></i>
@@ -757,6 +757,17 @@ avatar,
 }
 </style>
 </script>
+
+
+<!-- emojii-picker
+id,
+-->
+<script id="emojii-picker-tmpl" type="text/html">
+<div id="<%= id %>" class="emojii-panel hidden group row allow-wrap Box">
+	<emoji-picker id="emoji-picker"><emoji-picker>
+</div>
+</script>
+
 
 <!-- emojii-panel
 id,

@@ -131,8 +131,7 @@ library.view = library.view || {};
 		self.toggleUsersBtn.addEventListener( 'click', toggleUserList, false );
 		self.inviteBtn.addEventListener( 'click', showInviter, false );
 		
-		//emoPanelBtn.addEventListener( 'click', toggleEmoPanel, false );
-		emoPanelBtn.addEventListener( 'emoji-click', handleEmoji, false );
+		emoPanelBtn.addEventListener( 'click', toggleEmoPanel, false );
 		inputForm.addEventListener( 'submit', inputSubmit, false );
 		submitBtn.addEventListener( 'click', inputSubmit, false );
 		attachBtn.addEventListener( 'click', attach, false );
@@ -206,11 +205,9 @@ library.view = library.view || {};
 			self.send( inv );
 		}
 		
-		/*
 		function toggleEmoPanel( e ) {
 			self.emojiis.show();
 		}
-		*/
 		
 		function handleEmoji( e ) {
 			console.log( 'handleEmoji', e );
@@ -494,12 +491,20 @@ library.view = library.view || {};
 			emoElementMap[ key ] = el;
 		}
 		
+		self.emojiis = new library.component.EmojiPicker(
+			'foot',
+			onEmojii,
+		)
+		
+		/*
 		self.emojiis = new library.component.EmojiiPanel(
 			//'emojii-panel-button',
 			'foot',
 			emoElementMap,
 			onEmojii
 		);
+		*/
+		
 		function onEmojii( str ) {
 			self.input.add( ' ' + str );
 			self.input.focus();
