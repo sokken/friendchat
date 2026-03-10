@@ -585,7 +585,7 @@ html body div > .textarea-wrap textarea {
 
 .emojii-picker {
 	position: absolute;
-	bottom : 0;
+	bottom : 2em;
 	left: 0;
 	overflow: hidden;
 	overflow-y: auto;

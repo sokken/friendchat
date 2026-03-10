@@ -3496,7 +3496,7 @@ var hello = window.hello || {};
 			return;
 		
 		self.el.classList.toggle( 'hidden', false );
-		self.el.focus();
+		//self.el.focus();
 	}
 	
 	ns.EmojiPicker.prototype.hide = function() {
@@ -3535,13 +3535,14 @@ var hello = window.hello || {};
 		self.picker = document.getElementById( 'emoji-picker' )
 		console.log( 'picker', self.picker )
 		self.el.tabIndex = -1; // so its focusable
-		self.el.addEventListener( 'blur', emoPanelBlur, false );
+		//self.el.addEventListener( 'blur', emoPanelBlur, false );
 		self.el.addEventListener( 'focus', emoFocus, false );
 		
 		self.picker.addEventListener( 'emoji-click', handleEmoji, false );
 		
 		function emoPanelBlur( e ) {
 			console.log( 'emoblur' )
+			window.setTimeout()
 			self.hide();
 		}
 		
