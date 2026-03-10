@@ -206,6 +206,7 @@ library.view = library.view || {};
 		}
 		
 		function toggleEmoPanel( e ) {
+			console.log( 'toggleEmoPanel' )
 			self.emojiis.show();
 		}
 		

@@ -3520,6 +3520,7 @@ var hello = window.hello || {};
 	// PRIVATE
 	
 	ns.EmojiPicker.prototype.init = function() {
+		console.log( 'EmojiPicker.init' )
 		const self = this;
 		const conf = {
 			id : friendUP.tool.uid( 'emojii' ),
