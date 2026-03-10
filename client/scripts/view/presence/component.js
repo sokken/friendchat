@@ -3480,7 +3480,7 @@ var hello = window.hello || {};
 		const self = this;
 		
 		self.parentId = parentId;
-		self.onemojii = onemojii;
+		self.on_emojii = on_emojii;
 		
 		self.el = null;
 		self.picker = null
@@ -3512,7 +3512,7 @@ var hello = window.hello || {};
 		if ( self.el )
 			self.el.parentNode.removeChild( self.el );
 		
-		delete self.onemojii;
+		delete self.on_emojii;
 		delete self.el;
 		delete self.picker;
 	}
