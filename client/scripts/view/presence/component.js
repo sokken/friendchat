@@ -3530,8 +3530,9 @@ var hello = window.hello || {};
 		if ( !parent )
 			throw new Error( 'EmojiPicker - no element found for parentId' );
 		
+		console.log( 'el', self.el )
 		parent.appendChild( self.el );
-		self.picker = self.el.getElementById( 'emoji-picker' )
+		self.picker = document.getElementById( 'emoji-picker' )
 		console.log( 'picker', self.picker )
 		self.el.tabIndex = -1; // so its focusable
 		self.el.addEventListener( 'blur', emoPanelBlur, false );
