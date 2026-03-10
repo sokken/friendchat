@@ -3541,6 +3541,7 @@ var hello = window.hello || {};
 		self.picker.addEventListener( 'emoji-click', handleEmoji, false );
 		
 		function emoPanelBlur( e ) {
+			console.log( 'emoblur' )
 			self.hide();
 		}
 		
