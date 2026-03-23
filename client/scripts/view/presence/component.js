@@ -3554,7 +3554,7 @@ var hello = window.hello || {};
 			console.log( 'handleEmoji', meta )
 			
 			self.on_emojii( meta.unicode )
-			self.hide()
+			//self.hide()
 		}
 	}
 	
